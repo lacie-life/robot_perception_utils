@@ -78,3 +78,28 @@ cd ../..
 
 echo "Ceres Solver Install Success"
 
+echo "GTSAM Install"
+
+sudo apt-get -y install libboost-all-dev
+
+sudo apt-get -y install libtbb-dev
+
+wget https://github.com/borglab/gtsam/archive/refs/tags/4.0.3.tar.gz
+
+tar zxf gtsam-4.0.3.tar.gz
+
+cd gtsam-4.0.3
+
+mkdir build
+
+cd build
+
+cmake ..
+
+make -j12
+
+sudo make install
+
+cd ../..
+
+echo "GTSAM Install Success"
