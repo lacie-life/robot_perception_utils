@@ -6,7 +6,7 @@ echo "g2o Install...."
 
 echo "Dependencies Install"
 
-sudo apt-get install libsuitesparse-dev qtdeclarative5-dev qt5-qmake libqglviewer-dev-qt5
+sudo apt-get -y install libsuitesparse-dev qtdeclarative5-dev qt5-qmake libqglviewer-dev-qt5
 
 wget https://github.com/RainerKuemmerle/g2o/archive/refs/tags/20201223_git.tar.gz
 
@@ -50,15 +50,15 @@ echo "Ceres Solver Install"
 
 wget http://ceres-solver.org/ceres-solver-2.0.0.tar.gz
 
-sudo apt-get install cmake
+sudo apt-get -y install cmake
 
-sudo apt-get install libgoogle-glog-dev libgflags-dev
+sudo apt-get -y install libgoogle-glog-dev libgflags-dev
 
-sudo apt-get install libatlas-base-dev
+sudo apt-get -y install libatlas-base-dev
 
-sudo apt-get install libeigen3-dev
+sudo apt-get -y install libeigen3-dev
 
-sudo apt-get install libsuitesparse-dev
+sudo apt-get -y install libsuitesparse-dev
 
 tar zxf ceres-solver-2.0.0.tar.gz
 
