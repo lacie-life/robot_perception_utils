@@ -10,7 +10,7 @@ sudo apt-get -y install libsuitesparse-dev qtdeclarative5-dev qt5-qmake libqglvi
 
 wget https://github.com/RainerKuemmerle/g2o/archive/refs/tags/20201223_git.tar.gz
 
-tar -zxvf g2o-20201223_git.tar.gz
+tar -zxvf 20201223_git.tar.gz
 
 cd g2o-20201223_git
 
@@ -86,7 +86,7 @@ sudo apt-get -y install libtbb-dev
 
 wget https://github.com/borglab/gtsam/archive/refs/tags/4.0.3.tar.gz
 
-tar zxf gtsam-4.0.3.tar.gz
+tar zxf 4.0.3.tar.gz
 
 cd gtsam-4.0.3
 
