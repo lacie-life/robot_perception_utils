@@ -96,7 +96,7 @@ cd build
 
 cmake ..
 
-make -j12
+make -j8
 
 sudo make install
 
