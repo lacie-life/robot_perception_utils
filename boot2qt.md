@@ -115,6 +115,36 @@ reboot
 ifup wlan0
 ```
 
+[Auto connect wifi when boot](https://weworkweplay.com/play/automatically-connect-a-raspberry-pi-to-a-wifi-network/)
+
+## Cross-compiling Qt app
+
+```
+source ~/poky-dunfell/oe-init-build-env ~/rpi64/build
+
+bitbake meta-toolchain-qt5
+
+cd ~/rpi64/build/tmp/deploy/sdk
+
+sudo ./poky-glibc-x86_64-meta-toolchain-qt5-aarch64-raspberrypi4-64-toolchain-3.1.sh
+```
+
+## Use 
+
+```
+source /opt/poky/rpi64-3.1/environment-setup-aarch64-poky-linux
+
+# go to project
+
+qmake
+
+make
+
+# copy file run to pi
+
+scp tspress root@192.168.10.205:/tmp
+```
+
 ## Refer
 
 <iframe src="//www.slideshare.net/slideshow/embed_code/key/pTvcqAtLLaPOLV" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/MenderOTA/configuring-wifi-in-open-embedded-builds" title="Configuring wifi in open embedded builds" target="_blank">Configuring wifi in open embedded builds</a> </strong> from <strong><a href="//www.slideshare.net/MenderOTA" target="_blank">Mender.io</a></strong> </div>
