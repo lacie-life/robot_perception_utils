@@ -30,6 +30,8 @@ cd ../..
 
 echo "Pangolin Install"
 
+sudo apt-get install -y libglew-dev
+
 git clone --recursive https://github.com/stevenlovegrove/Pangolin.git
 
 cd Pangolin 
