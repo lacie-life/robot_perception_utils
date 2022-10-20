@@ -1,23 +1,61 @@
-1. Install VTK  
+# VTK + PCL + QT
 
-	a. Three software packages need to be installed before compiling VTK: X11, OpenGL, CMake.  
-  
-		sudo apt-get install libx11-dev libxext-dev libxtst-dev libxrender-dev libxmu-dev libxmuu-dev  
-		sudo apt-get install build-essential libgl1-mesa-dev libglu1-mesa-dev  
-		sudo apt-get install cmake cmake-qt-gui  
+1. Building VTK 9.0 with Qt 5.15
 
-	b. Download source of VTK 8.2.0 from [here](https://vtk.org/download/).  
-	c. UnzipVTK-8.2.0.tar.gz, create a build folder in the VTK-8.2.0 folder.  
-	d. Create environment variable from Qt installation folder(location of folder **5.15.2**):  
+This procedure has been tested on Windows 10 and Debian-based Linux.
 
-		export Qt5_PATH="<Qt installation folder>"  
+## Prerequisites
+- CMake 3.8+ installed
 
-	e. Following commands will be used for VTK installation:  
+- Qt 5.x downloaded. 
+The Qt directory will be refered to as \<QT-DIR\>
 
-		cmake .. -DVTK_Group_Qt:BOOL=TRUE -DVTK_QT_VERSION:VALUE=5 -DQT_QMAKE_EXECUTABLE:FILEPATH="${Qt5_PATH}/5.15.2/gcc_64/bin/qmake" -DQt5_DIR:PATH="${Qt5_PATH}/5.15.2/gcc_64/lib/cmake/Qt5" -DCMAKE_BUILD_TYPE:VALUE=Release  
-		sudo make -j<Number of processors>  
-		sudo make install  
-f. Ref [here](https://gitlab.kitware.com/vtk/vtk/-/issues/18005) if have problem with "error: aggregate ‘QPainterPath path’ has incomplete type and cannot be defined"
+- C++ compiler installed (like  GCC or  VS 2019). 
+The compiler name will be refered to as \<COMPILER\>
+
+## Building VTK
+**a. Download VTK source code**
+
+Download the source code from [http://VTK.org/download/](http://www.vtk.org/download/) and unpack it to a directory. This directory will be refered to as \<VTK-SOURCE-DIR\>
+
+**b. Start CMake**
+
+Start the CMake GUI application 
+
+**c. Specify source  and build directory**
+
+Source directory = \<VTK-SOURCE-DIR\> 
+
+Build directory = \<VTK-SOURCE-DIR\>/Build (For example) 
+
+**d. Start project configuration**
+
+Specify a generator like 'Unix makefiles' on linux or 'MS Visual Studio 16 2019' on Windows.
+
+**e. Specify entries and re-configure untill no more changes occur**
+
+Set the following values when asked for:
+
+
+| Name | Value |
+| --- | --- |
+| VTK_GROUP_ENABLE_Qt | YES |
+| Qt5_DIR | \<QT-DIR\>/5.15.1/\<COMPILER\>/lib/cmake/Qt5 |
+| VTK_Group_Qt | YES |
+| VTK_MODULE_ENABLE_VTK_GUISupportQt | YES |
+| CMAKE_BUILD_TYPE (Linux only, Makefiles) | Release |
+| CMAKE_CONFIGURATION_TYPES (Windows only, MSVC) | Release |
+
+Enable 'advanced' to see all entries and specify other Qt entries if they are not found automatically.
+
+**f. Generate project**
+
+Click on 'generate'. A buildable project will be created based on the chosen generator.
+
+**g. Build project**
+
+Build generated project using make (on Linux) or Visual Studio (on Windows)
+
 
     g. Locate the VTK directory containing the header files. This location is needed to be placed in **include_directories** command in line number **43** of **CMakeLists.txt**.  
 
@@ -37,7 +75,7 @@ f. Ref [here](https://gitlab.kitware.com/vtk/vtk/-/issues/18005) if have problem
 
 			export Qt5_PATH="<Qt installation folder>"  
 
-        	b. Find the location of VTKConfig.cmake which was installed with VTK (eg, `/usr/local/lib/cmake/vtk-8.2`)  
+        	b. Find the location of VTKConfig.cmake which was installed with VTK (eg, `/usr/local/lib/cmake/vtk-9.2`)  
  
 			export VTK_PATH="<Location of VTKConfig.cmake>"  
 
@@ -48,7 +86,7 @@ f. Ref [here](https://gitlab.kitware.com/vtk/vtk/-/issues/18005) if have problem
 		    sudo make install  
 		
 3. Configure VTK with QT.  
-	a. After the VTK is built, inside **/VTK-8.2.0/build/lib** folder **libQVTKWidgetPlugin.so** file is generated. Go to the file location and open terminal.  
+	a. After the VTK is built, inside **/VTK-9.2.0/build/lib** folder **libQVTKWidgetPlugin.so** file is generated. Go to the file location and open terminal.  
 	b. Copy **libQVTKWidgetPlugin.so** to `<Qt_Installation_Path>/Tools/QtCreator/lib/Qt/plugins/designer` folder using following commands in terminal:  
 		
 		export Qt5_PATH="<Qt installation folder>"  
