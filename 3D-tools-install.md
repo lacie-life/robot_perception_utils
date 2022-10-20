@@ -18,6 +18,7 @@
 		sudo make -j<Number of processors>  
 		sudo make install  
 f. Ref [here](https://gitlab.kitware.com/vtk/vtk/-/issues/18005) if have problem with "error: aggregate ‘QPainterPath path’ has incomplete type and cannot be defined"
+
     g. Locate the VTK directory containing the header files. This location is needed to be placed in **include_directories** command in line number **43** of **CMakeLists.txt**.  
 
 2. Install PCL:  
