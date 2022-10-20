@@ -45,6 +45,8 @@ Set the following values when asked for:
 
 Enable 'advanced' to see all entries and specify other Qt entries if they are not found automatically.
 
+[Ref bug](https://gitlab.kitware.com/vtk/vtk/-/issues/18375)
+
 **f. Generate project**
 
 Click on 'generate'. A buildable project will be created based on the chosen generator.
