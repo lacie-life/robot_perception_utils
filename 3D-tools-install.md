@@ -1,9 +1,5 @@
 # VTK + PCL + QT
 
-1. Building VTK 9.0 with Qt 5.15
-
-This procedure has been tested on Windows 10 and Debian-based Linux.
-
 ## Prerequisites
 - CMake 3.8+ installed
 
@@ -13,7 +9,8 @@ The Qt directory will be refered to as \<QT-DIR\>
 - C++ compiler installed (like  GCC or  VS 2019). 
 The compiler name will be refered to as \<COMPILER\>
 
-## Building VTK
+## Building VTK 9.0 with Qt 5.15
+
 **a. Download VTK source code**
 
 Download the source code from [http://VTK.org/download/](http://www.vtk.org/download/) and unpack it to a directory. This directory will be refered to as \<VTK-SOURCE-DIR\>
@@ -56,10 +53,7 @@ Click on 'generate'. A buildable project will be created based on the chosen gen
 
 Build generated project using make (on Linux) or Visual Studio (on Windows)
 
-
-    g. Locate the VTK directory containing the header files. This location is needed to be placed in **include_directories** command in line number **43** of **CMakeLists.txt**.  
-
-2. Install PCL:  
+## Install PCL:  
     a. Download PCL 1.12 source code tar.gz from https://github.com/PointCloudLibrary/pcl/releases.  
     b. Create **PCL\_ROOT** folder, extract the tar.gz file inside it.  
     c. In **PCL\_ROOT** folder open terminal and provide following commands:  
@@ -85,7 +79,7 @@ Build generated project using make (on Linux) or Visual Studio (on Windows)
 		    make -j<Number of processors>  
 		    sudo make install  
 		
-3. Configure VTK with QT.  
+## Configure VTK with QT.  
 	a. After the VTK is built, inside **/VTK-9.2.0/build/lib** folder **libQVTKWidgetPlugin.so** file is generated. Go to the file location and open terminal.  
 	b. Copy **libQVTKWidgetPlugin.so** to `<Qt_Installation_Path>/Tools/QtCreator/lib/Qt/plugins/designer` folder using following commands in terminal:  
 		
