@@ -53,35 +53,39 @@ Click on 'generate'. A buildable project will be created based on the chosen gen
 
 Build generated project using make (on Linux) or Visual Studio (on Windows)
 
-## Install PCL:  
-    a. Download PCL 1.12 source code tar.gz from https://github.com/PointCloudLibrary/pcl/releases.  
-    b. Create **PCL\_ROOT** folder, extract the tar.gz file inside it.  
-    c. In **PCL\_ROOT** folder open terminal and provide following commands:  
+## Install PCL
+
+a. Download PCL 1.12 source code tar.gz from https://github.com/PointCloudLibrary/pcl/releases.  
+
+b. Create **PCL\_ROOT** folder, extract the tar.gz file inside it.  
+
+c. In **PCL\_ROOT** folder open terminal and provide following commands:  
 
 		mkdir build && cd build  
 		cmake ..  
 		make -j<Number of processors>  
 		sudo make install  
 		
-	Note:
-	1. VTK and Qt dependencies are automatically detected by CMake for building but sometimes there is error thrown when they are not detected automatically. In that case follow below steps.  
-		a. Create environment variable from Qt installation folder(location of folder **5.15.2**):   
+Note:
+1. VTK and Qt dependencies are automatically detected by CMake for building but sometimes there is error thrown when they are not detected automatically. In that case follow below steps.  
+a. Create environment variable from Qt installation folder(location of folder **5.15.2**):   
 
 			export Qt5_PATH="<Qt installation folder>"  
 
-        	b. Find the location of VTKConfig.cmake which was installed with VTK (eg, `/usr/local/lib/cmake/vtk-9.2`)  
+b. Find the location of VTKConfig.cmake which was installed with VTK (eg, `/usr/local/lib/cmake/vtk-9.2`)  
  
 			export VTK_PATH="<Location of VTKConfig.cmake>"  
 
-		c. Run following commands:  
+c. Run following commands:  
 
             cmake ../pcl-pcl-1.12.0/ -DQt5_DIR:PATH="${Qt5_PATH}/5.15.2/gcc_64/lib/cmake/Qt5" -DVTK_DIR:PATH=${VTK_PATH}  
 		    make -j<Number of processors>  
 		    sudo make install  
 		
 ## Configure VTK with QT.  
-	a. After the VTK is built, inside **/VTK-9.2.0/build/lib** folder **libQVTKWidgetPlugin.so** file is generated. Go to the file location and open terminal.  
-	b. Copy **libQVTKWidgetPlugin.so** to `<Qt_Installation_Path>/Tools/QtCreator/lib/Qt/plugins/designer` folder using following commands in terminal:  
+a. After the VTK is built, inside **/VTK-9.2.0/build/lib** folder **libQVTKWidgetPlugin.so** file is generated. Go to the file location and open terminal. 
+
+b. Copy **libQVTKWidgetPlugin.so** to `<Qt_Installation_Path>/Tools/QtCreator/lib/Qt/plugins/designer` folder using following commands in terminal:  
 		
 		export Qt5_PATH="<Qt installation folder>"  
 		cp libQVTKWidgetPlugin.so $Qt5_PATH/Tools/QtCreator/lib/Qt/plugins/designer/
