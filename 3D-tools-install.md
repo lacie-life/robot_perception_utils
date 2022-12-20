@@ -9,6 +9,12 @@ The Qt directory will be refered to as \<QT-DIR\>
 - C++ compiler installed (like  GCC or  VS 2019). 
 The compiler name will be refered to as \<COMPILER\>
 
+```
+sudo apt-get install -y libflann-dev libglut3-dev
+sudo apt-get install libglu1-mesa-dev freeglut3-dev mesa-common-dev
+sudo apt-get install libboost-all-dev
+```
+
 ## Building VTK 9.0 with Qt 5.15
 
 **a. Download VTK source code**
