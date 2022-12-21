@@ -23,7 +23,7 @@ git clone git@github.com:lucasw/ros_from_src
 ```
 
 ```
-export DEST=$HOME/catkin_ws/other/install
+export DEST=$HOME/other/install
 export PATH=$PATH:$DEST/bin
 ```
 
