@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "OpenCV Install"
-echo "Version 4.2"
+echo "Version 4.5.2"
 echo "Support Qt/CUDA"
 
 echo "Dependencies Install"
@@ -44,13 +44,13 @@ sudo apt-get install -y libgoogle-glog-dev libgflags-dev
 
 sudo apt-get install -y libgphoto2-dev libeigen3-dev libhdf5-dev doxygen
 
-echo "OpenCV 4.2 download"
+echo "OpenCV 4.5.2 download"
 
 cd ~
 
-wget -O opencv.zip https://github.com/opencv/opencv/archive/4.2.0.zip
+wget -O opencv.zip https://github.com/opencv/opencv/archive/4.5.2.zip
 
-wget -O opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/4.2.0.zip
+wget -O opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/4.5.2.zip
 
 unzip opencv.zip
 
@@ -58,7 +58,7 @@ unzip opencv_contrib.zip
 
 echo "OpenCV Install"
 
-cd opencv-4.2.0
+cd opencv-4.5.2
 
 mkdir build
 
